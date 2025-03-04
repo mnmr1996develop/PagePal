@@ -18,4 +18,3 @@ spring:
       discovery:
         locator:
           enabled: true
-      routes:
