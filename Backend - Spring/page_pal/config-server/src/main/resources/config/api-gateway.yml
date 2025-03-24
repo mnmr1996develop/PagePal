@@ -2,6 +2,8 @@ server:
   port: 8080
 
 eureka:
+  instance:
+    preferIpAddress: true
   client:
     fetch-registry: true
     serviceUrl:
@@ -12,9 +14,14 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:7080/realms/common-ground
+          issuer-uri: http://localhost:7080/realms/page-pal
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
+      routes:
+        - id: authentication-service
+          uri: lb:http://AUTHENTICATION-SERVICE
+          predicates:
+            - Path=/api/v1/auth/**

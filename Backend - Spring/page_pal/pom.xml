@@ -18,8 +18,8 @@
     <modules>
         <module>api-gateway</module>
         <module>authentication-service</module>
-        <module>dicovery-server</module>
         <module>config-server</module>
+        <module>discovery-server</module>
     </modules>
 
     <properties>
