@@ -15,9 +15,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Book
-import androidx.compose.material.icons.twotone.AccountCircle
 import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
@@ -32,10 +30,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.michaelrichards.pagepal.R
 import com.michaelrichards.pagepal.components.AuthTextFields
 import com.michaelrichards.pagepal.components.PasswordTextField
+import com.michaelrichards.pagepal.navigation.Screen
 
 @Composable
 fun LoginScreen(
@@ -50,6 +48,7 @@ fun LoginScreen(
     val isPasswordHidden = remember { mutableStateOf(true) }
 
     Scaffold(
+        modifier = modifier,
         bottomBar = {
             Box(
                 modifier = Modifier
@@ -61,7 +60,7 @@ fun LoginScreen(
                         .fillMaxSize()
                         .padding(16.dp),
                     onClick = {
-
+                        navController.navigate(Screen.RegistrationScreen.route)
                     }
                 ) {
                     Text(text = stringResource(R.string.sign_up))

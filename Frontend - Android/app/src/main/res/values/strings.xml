@@ -7,4 +7,11 @@
     <string name="login">Login</string>
     <string name="sign_up">Sign up</string>
     <string name="app_icon">Page Pal Icon</string>
+    <string name="go_back">Go back</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">E-mail</string>
+    <string name="retype_password">Re-type Password</string>
+    <string name="register">Register</string>
+    <string name="select_birthday">Select Birthday</string>
 </resources>

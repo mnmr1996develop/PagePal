@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.michaelrichards.pagepal.screens.login.LoginScreen
+import com.michaelrichards.pagepal.screens.registration.RegistrationScreen
 
 @Composable
 fun Navigation(
@@ -15,8 +16,14 @@ fun Navigation(
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = Screen.LoginScreen.route){
+
+
         composable(route = Screen.LoginScreen.route){
             LoginScreen(modifier = modifier, navController = navController)
+        }
+
+        composable(route = Screen.RegistrationScreen.route) {
+            RegistrationScreen(modifier = modifier, navController = navController)
         }
     }
 
