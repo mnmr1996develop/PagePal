@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.michaelrichards.pagepal.navigation.Navigation
 import com.michaelrichards.pagepal.ui.theme.PagePalTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +21,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PagePalTheme {
-
+                Scaffold(
+                    modifier = Modifier.padding(8.dp)
+                ){ paddingValues ->
+                    Navigation(modifier = Modifier.padding(paddingValues))
+                }
             }
         }
     }

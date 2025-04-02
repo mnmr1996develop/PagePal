@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Page Pal</string>
+    <string name="username">Username</string>
+    <string name="showPassword">Show password</string>
+    <string name="hidePassword">Hide password</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="app_icon">Page Pal Icon</string>
 </resources>
