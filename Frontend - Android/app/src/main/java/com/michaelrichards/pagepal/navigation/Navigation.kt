@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.michaelrichards.pagepal.screens.login.LoginScreen
 import com.michaelrichards.pagepal.screens.registration.RegistrationScreen
@@ -15,16 +16,21 @@ fun Navigation(
 
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Screen.LoginScreen.route){
+    NavHost(navController = navController, startDestination = Graph.Auth.graphName){
 
+        navigation(
+            route = Graph.Auth.graphName,
+            startDestination = Screen.LoginScreen.route,
+        ){
+            composable(route = Screen.LoginScreen.route){
+                LoginScreen(modifier = modifier, navController = navController)
+            }
 
-        composable(route = Screen.LoginScreen.route){
-            LoginScreen(modifier = modifier, navController = navController)
+            composable(route = Screen.RegistrationScreen.route) {
+                RegistrationScreen(modifier = modifier, navController = navController)
+            }
         }
 
-        composable(route = Screen.RegistrationScreen.route) {
-            RegistrationScreen(modifier = modifier, navController = navController)
-        }
     }
 
 }
