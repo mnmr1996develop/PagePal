@@ -33,6 +33,7 @@ import androidx.navigation.NavController
 import com.michaelrichards.pagepal.R
 import com.michaelrichards.pagepal.components.AuthTextFields
 import com.michaelrichards.pagepal.components.PasswordTextField
+import com.michaelrichards.pagepal.navigation.Graph
 import com.michaelrichards.pagepal.navigation.Screen
 
 @Composable
@@ -100,7 +101,7 @@ fun LoginScreen(
                 label = stringResource(R.string.password),
                 enabled = isEnabled,
                 isError = isError,
-                passwordHidden = isPasswordHidden,
+                showPasswod = isPasswordHidden,
                 keyboardActions = KeyboardActions { }
             )
 
@@ -108,7 +109,12 @@ fun LoginScreen(
 
             Button(
                 onClick = {
+                    navController.navigate(Graph.Main.graphName){
+                        popUpTo(Graph.Auth.graphName){
+                            inclusive = true
 
+                        }
+                    }
                 }
             ) {
                 Text(stringResource(R.string.login))
