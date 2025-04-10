@@ -29,8 +29,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
+import com.michaelrichards.pagepal.R
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -49,7 +51,7 @@ fun DatePickerField(modifier: Modifier = Modifier, datePickerState: DatePickerSt
         OutlinedTextField(
             value = selectedDate,
             onValueChange = { },
-            label = { Text("DOB") },
+            label = { Text(text = stringResource(R.string.select_birthday)) },
             readOnly = true,
             trailingIcon = {
                 IconButton(onClick = { showDatePicker = !showDatePicker }) {
@@ -90,6 +92,7 @@ fun DatePickerField(modifier: Modifier = Modifier, datePickerState: DatePickerSt
                         modifier = Modifier.padding(32.dp),
                         state = datePickerState,
                         showModeToggle = false,
+
 
                     )
                 }

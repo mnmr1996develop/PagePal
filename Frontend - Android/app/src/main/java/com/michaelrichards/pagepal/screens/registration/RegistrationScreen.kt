@@ -1,6 +1,5 @@
 package com.michaelrichards.pagepal.screens.registration
 
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.SelectableDates
 import androidx.compose.material3.rememberDatePickerState
@@ -54,7 +53,7 @@ fun RegistrationScreen(
         birthday = birthday,
         password = password,
         retypePassword = retypePassword,
-        enabled = enabled,
+        isEnabled = enabled,
         isFirstNameError = isFirstNameError,
         isLastNameError = isLastNameError,
         isUsernameError = isUsernameError,

@@ -27,7 +27,8 @@ fun PasswordTextField(
     label: String,
     enabled: MutableState<Boolean>,
     isError: MutableState<Boolean>,
-    showPasswod: MutableState<Boolean>,
+    showPassword: MutableState<Boolean>,
+    imeAction: ImeAction = ImeAction.Next,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
 ) {
     OutlinedTextField(
@@ -36,21 +37,21 @@ fun PasswordTextField(
         label = { Text(text = label, style = MaterialTheme.typography.labelMedium) },
         onValueChange = { textValueState.value = it.filterCharacters() },
         enabled = enabled.value,
-        maxLines = 1,
+        singleLine = true,
         trailingIcon = {
             Icon(
-                modifier = Modifier.clickable { showPasswod.value = !showPasswod.value },
-                imageVector = if (showPasswod.value) Icons.Filled.VisibilityOff else Icons.Filled.Visibility,
-                contentDescription = stringResource(id = if (showPasswod.value) R.string.hidePassword else R.string.showPassword)
+                modifier = Modifier.clickable { showPassword.value = !showPassword.value },
+                imageVector = if (showPassword.value) Icons.Filled.VisibilityOff else Icons.Filled.Visibility,
+                contentDescription = stringResource(id = if (showPassword.value) R.string.hidePassword else R.string.showPassword)
             )
         },
         isError = isError.value,
         keyboardActions = keyboardActions,
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Password,
-            imeAction = ImeAction.Go
+            imeAction = imeAction
         ),
-        visualTransformation = if (showPasswod.value) VisualTransformation.None else PasswordVisualTransformation()
+        visualTransformation = if (showPassword.value) VisualTransformation.None else PasswordVisualTransformation()
     )
 }
 
